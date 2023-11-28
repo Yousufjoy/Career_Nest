@@ -1,3 +1,9 @@
+import Banner from "./Banner";
+
 export const Home = () => {
-  return <div className=" text-3xl text-blue-300">Home</div>;
+  return (
+    <div>
+      <Banner></Banner>
+    </div>
+  );
 };
