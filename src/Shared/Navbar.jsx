@@ -55,6 +55,12 @@ const Navbar = () => {
             >
               Register
             </NavLink>
+            <NavLink
+              to="/login"
+              className="px-3 py-2  transition duration-300 ease-in-out hover:text-[#767676] text-lg text-[#bb78f2]"
+            >
+              Login
+            </NavLink>
 
             {/* {user ? (
             <>
