@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import logo from "../assets/logo.jpg";
 
 const Navbar = () => {
@@ -13,7 +13,7 @@ const Navbar = () => {
             href="#"
             className="text-2xl font-bold text-[#3A3A3A] flex items-center"
           >
-            <img className=" w-[200px]" src={logo} />
+            <img className=" w-[300px]" src={logo} />
           </a>
 
           <div className="hidden md:flex items-center">
@@ -48,6 +48,12 @@ const Navbar = () => {
               className="px-3 py-2  transition duration-300 ease-in-out hover:text-[#767676] text-lg text-[#bb78f2]"
             >
               Blogs
+            </NavLink>
+            <NavLink
+              to="/register"
+              className="px-3 py-2  transition duration-300 ease-in-out hover:text-[#767676] text-lg text-[#bb78f2]"
+            >
+              Register
             </NavLink>
 
             {/* {user ? (
