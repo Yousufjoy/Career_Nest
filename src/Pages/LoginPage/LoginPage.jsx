@@ -1,9 +1,11 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProviders";
+import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const { loginUser } = useContext(AuthContext);
+  const nav = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -15,6 +17,7 @@ const LoginPage = () => {
       .then((userCredential) => {
         const user = userCredential.user;
         console.log("From Login success", user);
+        nav("/");
       })
       .catch((error) => {
         const errorMessage = error.message;
@@ -64,7 +67,7 @@ const LoginPage = () => {
               </div>
               <button
                 type="submit"
-                className="bg-[#BB78F2] px-8 py-3 rounded-md text-white hover:bg-white border-2 border-solid border-[#BB78F2] transition-all"
+                className="bg-[#BB78F2] px-8 py-3 rounded-md text-white hover:bg-purple-300 border-2 border-solid border-[#BB78F2] transition-all"
               >
                 Login Now
               </button>

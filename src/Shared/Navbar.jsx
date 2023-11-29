@@ -1,9 +1,14 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
 import logo from "../assets/logo.jpg";
+import { AuthContext } from "../Providers/AuthProviders";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { user, logoutUser } = useContext(AuthContext);
+  const handleSignOut = () => {
+    logoutUser().then().catch();
+  };
 
   return (
     <div className=" ">
@@ -31,76 +36,83 @@ const Navbar = () => {
               All Jobs
             </NavLink>
 
-            <NavLink
-              to="/mycart"
-              className="px-3 py-2  transition duration-300 ease-in-out hover:text-[#767676] text-lg text-[#bb78f2]"
-            >
-              Add a Job
-            </NavLink>
-            <NavLink
-              to="/mycart"
-              className="px-3 py-2  transition duration-300 ease-in-out hover:text-[#767676] text-lg text-[#bb78f2]"
-            >
-              My Job
-            </NavLink>
+            {user && (
+              <>
+                <NavLink
+                  to="/mycart"
+                  className="px-3 py-2  transition duration-300 ease-in-out hover:text-[#767676] text-lg text-[#bb78f2]"
+                >
+                  Add a Job
+                </NavLink>
+                <NavLink
+                  to="/mycart"
+                  className="px-3 py-2  transition duration-300 ease-in-out hover:text-[#767676] text-lg text-[#bb78f2]"
+                >
+                  My Jobs
+                </NavLink>
+                <NavLink
+                  to="/mycart"
+                  className="px-3 py-2  transition duration-300 ease-in-out hover:text-[#767676] text-lg text-[#bb78f2]"
+                >
+                  Applied Jobs
+                </NavLink>
+              </>
+            )}
             <NavLink
               to="/mycart"
               className="px-3 py-2  transition duration-300 ease-in-out hover:text-[#767676] text-lg text-[#bb78f2]"
             >
               Blogs
             </NavLink>
-            <NavLink
-              to="/register"
-              className="px-3 py-2  transition duration-300 ease-in-out hover:text-[#767676] text-lg text-[#bb78f2]"
-            >
-              Register
-            </NavLink>
-            <NavLink
-              to="/login"
-              className="px-3 py-2  transition duration-300 ease-in-out hover:text-[#767676] text-lg text-[#bb78f2]"
-            >
-              Login
-            </NavLink>
 
-            {/* {user ? (
-            <>
-              <NavLink
-                to="/login"
-                className="px-3 py-2 hidden transition duration-300 ease-in-out hover:text-[#767676] text-lg text-[#F7A034]"
-              >
-                Register
-              </NavLink>
-
-              <p className=" font-bold  px-[15px]">{user.displayName}</p>
-              <img
-                className=" w-[50px] h-[45px] rounded-full  mx-[10px]"
-                src={user.photoURL}
-              />
-            </>
-          ) : (
-            <NavLink
-              to="/login"
-              className="px-3 py-2  transition duration-300 ease-in-out hover:text-[#767676] text-lg text-[#F7A034]"
-            >
-              Login
-            </NavLink>
-          )}
-
-          {user && (
-            <>
-              <NavLink
-                to="/"
-                className="px-3 py-2  transition duration-300 ease-in-out hover:text-[#767676] text-lg "
-              >
-                <button
-                  onClick={handleSignOut}
-                  className="btn btn-active btn-ghost dark:text-gray-300"
+            {user ? (
+              <>
+                <NavLink
+                  to="/login"
+                  className="px-3 py-2 hidden transition duration-300 ease-in-out hover:text-[#767676] text-lg text-[#F7A034]"
                 >
-                  Logout
-                </button>
-              </NavLink>
-            </>
-          )}  */}
+                  Register
+                </NavLink>
+
+                <p className=" font-bold  px-[15px]">{user.displayName}</p>
+                <img
+                  className=" w-[50px] h-[45px] rounded-full  mx-[10px]"
+                  src={user.photoURL}
+                />
+              </>
+            ) : (
+              <>
+                <NavLink
+                  to="/login"
+                  className="px-3 py-2  transition duration-300 ease-in-out hover:text-[#767676] text-lg text-[#bb78f2]"
+                >
+                  Login
+                </NavLink>
+
+                <NavLink
+                  to="/register"
+                  className="px-3 py-2  transition duration-300 ease-in-out hover:text-[#767676] text-lg text-[#bb78f2]"
+                >
+                  Register
+                </NavLink>
+              </>
+            )}
+
+            {user && (
+              <>
+                <NavLink
+                  to="/"
+                  className="px-3 py-2  transition duration-300 ease-in-out hover:text-[#767676] text-lg "
+                >
+                  <button
+                    onClick={handleSignOut}
+                    className="btn btn-active btn-ghost dark:text-gray-300"
+                  >
+                    Logout
+                  </button>
+                </NavLink>
+              </>
+            )}
           </div>
 
           <div className="md:hidden">
