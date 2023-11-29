@@ -4,6 +4,7 @@ import { Home } from "../Pages/Home/Home";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Register from "../Pages/Register/Register";
 import LoginPage from "../Pages/LoginPage/LoginPage";
+import AddJobs from "../Pages/AddJobs/AddJobs";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <LoginPage></LoginPage>,
+      },
+      {
+        path: "/addjobs",
+        element: <AddJobs></AddJobs>,
       },
     ],
   },

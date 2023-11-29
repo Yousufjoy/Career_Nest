@@ -2,10 +2,10 @@ import hero from "../../assets/hero.jpg";
 
 const Banner = () => {
   return (
-    <div className="">
-      <div className="lg:flex my-[-150px] lg:my-[100px] lg:mx-[0px] ">
+    <div className=" ">
+      <div className="lg:flex my-[-150px] lg:my-[10px] lg:mx-[0px] ">
         <div className=" ">
-          <h1 className="text-gray-700 dark:text-gray-100 text-5xl font-normal  mt-[10px] lg:mx-[100px] ml-[80px] text-start">
+          <h1 className="text-gray-700 dark:text-gray-100 text-5xl font-normal  mt-[150px] lg:mx-[100px] ml-[80px] text-start">
             Unlock Your Career Potential: Where Opportunities Meet Aspirations!
           </h1>
           <div className=" mt-[40px] ml-[80px] lg:ml-[100px] bg-[#ae4cff] w-[213px] h-[50px] rounded-full shadow-2xl">

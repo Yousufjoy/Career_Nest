@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProviders";
-import { Navigate, useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { AiFillGoogleCircle } from "react-icons/ai";
 import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 
@@ -85,6 +85,15 @@ const LoginPage = () => {
               >
                 Login Now
               </button>
+              <p className="mt-2 text-sm text-center leading-5 max-w">
+                <span>Dont have an account? </span>
+                <Link
+                  to="/register"
+                  className="text-blue-500 text-lg font-bold"
+                >
+                  create a new account
+                </Link>
+              </p>
               <div className="flex flex-col space-y-5">
                 <span className="flex items-center justify-center space-x-2">
                   <span className="h-px bg-gray-400 w-14"></span>
